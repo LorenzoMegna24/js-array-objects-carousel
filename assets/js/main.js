@@ -115,3 +115,18 @@ next.addEventListener("click", function(){
 
 })
 
+let clock = setInterval(function(){
+
+  if(active == immagineVisualizzata.getElementsByClassName("item").length - 1){
+    active = 0
+  }else{
+    active++;
+  }
+  
+  document.querySelector(".item.active").classList.remove("active")
+  immagineVisualizzata.getElementsByClassName("item")[active].classList.add("active")
+
+  document.querySelector(".thumb.active").classList.remove("active")
+  immagineThumb.getElementsByClassName("thumb")[active].classList.add("active")
+
+}, 3000)
