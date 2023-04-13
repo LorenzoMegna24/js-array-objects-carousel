@@ -59,8 +59,10 @@ for( let i = 0; i < images.length; i++ ){
   immagineVisualizzata.innerHTML += `
                   <div class="item">
                     <img src="${pathImg}${singoloOggetto.image}" alt="${singoloOggetto.title}">
-                    <h6>${singoloOggetto.title}</h6>
-                    <p>$</p>
+                    <div class="info">
+                    <h3>${singoloOggetto.title}</h3>
+                    <p>${singoloOggetto.text}</p>
+                    </div>
                   </div>`
 
 
@@ -69,6 +71,47 @@ for( let i = 0; i < images.length; i++ ){
                     <img src="${pathImg}${singoloOggetto.image}" alt="${singoloOggetto.title}">
                   </div>`
 
-
 }
+                  
+let active = 0
+
+immagineVisualizzata.getElementsByClassName("item")[active].classList.add("active")
+immagineThumb.getElementsByClassName("thumb")[active].classList.add("active")
+
+const prev = document.querySelector(".prev")
+const next = document.querySelector(".next")
+
+prev.addEventListener("click", function(){
+  
+  if(active == 0){
+    active = immagineVisualizzata.getElementsByClassName("item").length - 1
+  }else{
+    active--;
+  }
+  
+  document.querySelector(".item.active").classList.remove("active")
+  immagineVisualizzata.getElementsByClassName("item")[active].classList.add("active")
+
+  document.querySelector(".thumb.active").classList.remove("active")
+  immagineThumb.getElementsByClassName("thumb")[active].classList.add("active")
+
+
+})
+
+next.addEventListener("click", function(){
+  
+  if(active == immagineVisualizzata.getElementsByClassName("item").length - 1){
+    active = 0
+  }else{
+    active++;
+  }
+  
+  document.querySelector(".item.active").classList.remove("active")
+  immagineVisualizzata.getElementsByClassName("item")[active].classList.add("active")
+
+  document.querySelector(".thumb.active").classList.remove("active")
+  immagineThumb.getElementsByClassName("thumb")[active].classList.add("active")
+
+
+})
 

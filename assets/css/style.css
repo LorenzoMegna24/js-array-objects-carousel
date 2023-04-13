@@ -41,7 +41,7 @@
   object-fit: cover;
   filter: brightness(0.5);
 }
-.thumb .active img{
+.thumb.active img{
   filter: brightness(1);
 }
 
@@ -51,7 +51,17 @@
 
 .item{
   display: none;
+  position: relative;
 }
+.item .info{
+  position: absolute;
+  bottom: 10px;
+  left: 5px;
+  right: 5px;
+  background-color: rgb(122, 163, 198, 0.6);
+  border-radius: 10px;
+}
+
 
 .next,.prev{
   font-size: 20px;
@@ -63,10 +73,12 @@
   top: 10px;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 10;
 }
 .next{
   position: absolute;
   bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 10;
 }
