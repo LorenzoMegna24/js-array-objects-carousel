@@ -48,6 +48,27 @@ const images = [
 
 let pathImg = "assets/"
 
-const immagineVisualizzata = document.querySelector(".item")
-const immagineThumb = document.querySelector(".thumb")
+const immagineVisualizzata = document.querySelector(".items")
+const immagineThumb = document.querySelector(".thumbs")
+
+for( let i = 0; i < images.length; i++ ){
+  console.log(images[i]);
+
+  let singoloOggetto = images[i]
+
+  immagineVisualizzata.innerHTML += `
+                  <div class="item">
+                    <img src="${pathImg}${singoloOggetto.image}" alt="${singoloOggetto.title}">
+                    <h6>${singoloOggetto.title}</h6>
+                    <p>$</p>
+                  </div>`
+
+
+  immagineThumb.innerHTML += `
+                  <div class="thumb">
+                    <img src="${pathImg}${singoloOggetto.image}" alt="${singoloOggetto.title}">
+                  </div>`
+
+
+}
 
